@@ -39,15 +39,3 @@ app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);
 });
 
-//auth-route
-
-const authRoutes = require('./routes/auth');
-app.use('/api/auth', authRoutes);
-
-//products-route 
-const productRoutes = require('./routes/products');
-app.use('/api/products', productRoutes);
-
-//orders-route
-const orderRoutes = require('./routes/orders');
-app.use('/api/orders', orderRoutes);

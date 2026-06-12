@@ -16,7 +16,7 @@ function Login({onClose, onLogin, openRegister }) {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://https://expo-go-backend.onrender.com/api/auth/login', {
+      const response = await fetch('https://expo-go-backend.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -73,11 +73,11 @@ function Login({onClose, onLogin, openRegister }) {
         onClick={(e) => e.stopPropagation()} // ✅ Prevent close when clicking inside
         style={{
           backgroundColor: 'white',
-          padding: '30px',
-          borderRadius: '12px',
-          width: '400px',
+          padding: '40px',
+          borderRadius: '20px',
+          width: '450px',
           position: 'relative',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+          boxShadow: '0 20px 60px rgba(0,0,0,.15)',
         }}
       >
         <button
@@ -127,20 +127,24 @@ function Login({onClose, onLogin, openRegister }) {
 
 const inputStyle = {
   width: '100%',
-  marginBottom: '12px',
-  padding: '10px',
-  borderRadius: '5px',
-  border: '1px solid #ccc',
+  padding: '14px',
+  marginBottom: '16px',
+  borderRadius: '12px',
+  border: '1px solid #e2e8f0',
+  fontSize: '15px',
+  boxSizing: 'border-box'
 };
 
 const buttonStyle = {
   width: '100%',
-  backgroundColor: '#0d6efd',
-  color: 'white',
-  padding: '10px',
+  background: '#188754',
+  color: '#fff',
+  padding: '14px',
   border: 'none',
-  borderRadius: '5px',
-   cursor: 'url(/cursor.cur), default', 
+  borderRadius: '12px',
+  fontWeight: '600',
+  fontSize: '16px',
+  cursor: 'pointer'
 };
 
 export default Login;

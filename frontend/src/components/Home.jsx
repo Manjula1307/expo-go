@@ -62,70 +62,76 @@ const styles = {
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: '40px', // Reduced top padding
-    backgroundColor: '#f0fdf4',
-    fontFamily: "'Poppins', sans-serif",
-    padding: '20px',
+    alignItems: 'center',
     textAlign: 'center',
+    background: 'linear-gradient(135deg,#f8fffe,#e8f5f0)',
+    padding: '120px 20px 80px',
+    position: 'relative',
+    overflow: 'hidden',
+    fontFamily: "'Poppins', sans-serif",
   },
+
   backgroundImage: {
     position: 'absolute',
+    width: '70%',
+    height: '70%',
     top: '50%',
     left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '80%',
-    height: '80%',
+    transform: 'translate(-50%,-50%)',
     backgroundImage: `url(${molecule})`,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    transition: 'opacity 1.5s ease',
+    transition: 'all .6s ease',
     zIndex: 0,
   },
+
   centeredContent: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginBottom: '20px', // Reduced margin
-    padding: '0 20px',
-    maxWidth: '800px',
+    zIndex: 2,
+    maxWidth: '900px',
   },
+
   textBox: {
-    maxWidth: '600px',
+    padding: '20px',
   },
+
   companyName: {
-    fontSize: '32px',
-    fontWeight: '700',
-    color: '#000',
-    marginBottom: '10px',
+    fontSize: '58px',
+    fontWeight: '800',
+    color: '#0f172a',
+    lineHeight: '1.1',
+    marginBottom: '20px',
   },
+
   shortIntro: {
-    fontSize: '16px',
-    color: '#000',
-    marginBottom: '10px', // Reduced margin
+    fontSize: '22px',
+    color: '#475569',
+    marginBottom: '30px',
   },
+
   centerDescription: {
-    maxWidth: '800px',
-    marginBottom: '20px', // Reduced margin
-    textAlign: 'center',
-    padding: '0 20px',
+    maxWidth: '850px',
+    zIndex: 2,
+    marginTop: '10px',
   },
+
   description: {
     fontSize: '18px',
-    color: '#000',
-    lineHeight: '1.6',
+    lineHeight: '1.9',
+    color: '#334155',
   },
+
   button: {
-    backgroundColor: '#188754',
+    marginTop: '40px',
+    background: '#188754',
     color: '#fff',
-    padding: '12px 24px',
-    borderRadius: '8px',
+    padding: '16px 32px',
+    borderRadius: '50px',
     textDecoration: 'none',
-    fontWeight: '500',
-    transition: 'background-color 0.3s ease',
+    fontWeight: '600',
     fontSize: '18px',
-    marginTop: '10px', // Reduced margin
+    boxShadow: '0 10px 25px rgba(24,135,84,.25)',
   },
 };
 

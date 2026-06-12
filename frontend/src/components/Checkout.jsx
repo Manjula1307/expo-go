@@ -15,7 +15,7 @@
 //   e.preventDefault();
 
 //   try {
-//     const response = await fetch('http://localhost:5000/api/orders', {
+//     const response = await fetch('http://https://expo-go-backend.onrender.com/api/orders', {
 //       method: 'POST',
 //       headers: {
 //         'Content-Type': 'application/json',
@@ -154,7 +154,7 @@ function Checkout({ onClose, cartItems, calculateTotal }) {
   const handleStripePayment = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:5000/api/payment/create-payment-intent', {
+    const response = await fetch('http://https://expo-go-backend.onrender.com/api/payment/create-payment-intent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ amount: calculateTotal() }),

@@ -7,7 +7,7 @@ function Orders({ onClose }) {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/orders', {
+        const response = await fetch('http://https://expo-go-backend.onrender.com/api/orders', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },

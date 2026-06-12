@@ -18,7 +18,7 @@ function Profile({ onClose }) {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch('http://https://expo-go-backend.onrender.com/api/user/profile', {
+        const response = await fetch('https://expo-go-backend.onrender.com/api/user/profile', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
@@ -39,7 +39,7 @@ function Profile({ onClose }) {
   // ✅ Save edited profile to backend
   const handleSave = async () => {
     try {
-      const response = await fetch('http://https://expo-go-backend.onrender.com/api/user/profile', {
+      const response = await fetch('https://expo-go-backend.onrender.com/api/user/profile', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

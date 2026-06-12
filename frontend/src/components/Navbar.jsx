@@ -6,7 +6,17 @@ function Navbar({ openLogin, openRegister, isLoggedIn, onProfile, onOrders, onLo
     <nav style={styles.navbar}>
       {/* Left: Logo only */}
       <div style={styles.logoContainer}>
-        <h1>+expoGo</h1>
+       <h1
+  style={{
+    fontSize: '38px',
+    fontWeight: '800',
+    margin: 0,
+    color: '#0f172a',
+    letterSpacing: '-1px',
+  }}
+>
+  ExpoGo
+</h1>
       </div>
 
       {/* Center: Navigation Links */}
@@ -96,90 +106,94 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // Reduced vertical padding to allow more space for the logo without increasing overall navbar height
-    padding: '8px 40px', // Adjusted from '12px 40px'
-    backgroundColor: '#f9f9f9',
-    color: '#333',
+    padding: '18px 60px',
+    background: 'rgba(255,255,255,0.95)',
+    backdropFilter: 'blur(12px)',
+    WebkitBackdropFilter: 'blur(12px)',
     position: 'fixed',
     top: 0,
     left: 0,
     width: '100%',
     zIndex: 1000,
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    boxSizing: 'border-box',
+    borderBottom: '1px solid rgba(0,0,0,0.05)',
+    boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
     fontFamily: "'Poppins', sans-serif",
-    // Optional: If you still have issues, you could set a minHeight, but adjusting padding is usually better.
-    // minHeight: '90px',
   },
+
   logoContainer: {
     display: 'flex',
     alignItems: 'center',
-   
+    cursor: 'pointer',
   },
+
   navLinks: {
     listStyle: 'none',
     display: 'flex',
-    gap: '35px',
+    gap: '42px',
     margin: 0,
     padding: 0,
+    alignItems: 'center',
   },
+
   link: {
-    color: '#333',
+    color: '#1e293b',
     textDecoration: 'none',
     fontSize: '16px',
-    fontWeight: '500',
-    transition: 'color 0.3s ease',
-    cursor: 'url(/cursor.cur), pointer',
+    fontWeight: '600',
+    transition: 'all .3s ease',
+    cursor: 'pointer',
   },
+
   authBox: {
     display: 'flex',
-    // gap: '10px', // Remove this and use margin on individual buttons for better control
-    // backgroundColor: '#0d6efd', // This was setting the blue background to the entire box, move it to the button
-    // padding: '8px 16px', // This was setting the padding to the entire box, move it to the button
-    borderRadius: '8px',
+    gap: '12px',
   },
-  authButton: { // New style for individual buttons
+
+  authButton: {
+    background: '#188754',
     color: '#fff',
-    background: '#0d6efd', // Apply background to the button itself
     border: 'none',
-    fontSize: '16px',
-    fontWeight: '500',
-    cursor: 'url(/cursor.cur), pointer',
-    padding: '8px 16px', // Apply padding to the button
-    borderRadius: '8px', // Apply border-radius to the button
-    // Add gap between buttons
-    marginRight: '10px', // Add right margin to create space
+    padding: '12px 22px',
+    borderRadius: '12px',
+    fontWeight: '600',
+    fontSize: '15px',
+    cursor: 'pointer',
+    transition: 'all .3s ease',
+    boxShadow: '0 8px 20px rgba(24,135,84,.2)',
   },
-  profileMenu: {
-    position: 'relative',
-    cursor: 'url(/cursor.cur), pointer',
-  },
-  profileIcon: {
-    fontSize: '28px',
-    color: '#0d6efd',
-    cursor: 'url(/cursor.cur), pointer',
-  },
+
   profileMenuContainer: {
     position: 'relative',
-    display: 'inline-block',
   },
+
+  profileMenu: {
+    position: 'relative',
+    cursor: 'pointer',
+  },
+
+  profileIcon: {
+    fontSize: '34px',
+    color: '#188754',
+  },
+
   dropdown: {
     position: 'absolute',
-    top: '35px',
+    top: '45px',
     right: 0,
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-    padding: '8px 0',
-    zIndex: 1000,
-    minWidth: '130px',
+    background: '#fff',
+    borderRadius: '14px',
+    boxShadow: '0 15px 40px rgba(0,0,0,.12)',
+    minWidth: '180px',
+    overflow: 'hidden',
   },
+
   dropdownItem: {
-    padding: '8px 16px',
-    cursor: 'url(/cursor.cur), pointer',
-    color: '#333',
-    '&:hover': {
-      backgroundColor: '#f0f0f0',
-    },
+    padding: '14px 18px',
+    color: '#334155',
+    fontWeight: '500',
+    cursor: 'pointer',
+    borderBottom: '1px solid #f1f5f9',
   },
 };
 

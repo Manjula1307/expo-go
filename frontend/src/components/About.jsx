@@ -1,94 +1,90 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-
-// ✅ Step 1: Scroll Animation Keyframes
-const keyframes = `
-@keyframes scrollLeft {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
-}
-`;
-
-
 function About() {
-  const [selectedBox, setSelectedBox] = useState(null);
   useEffect(() => {
-    AOS.init({ duration: 1000, once: false, mirror: true, easing: 'ease-in-out',  });
-
-      const styleSheet = document.createElement("style");
-    styleSheet.type = "text/css";
-    styleSheet.innerText = keyframes;
-    document.head.appendChild(styleSheet);
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+      easing: 'ease-in-out',
+    });
   }, []);
-
-
-   // ✅ Step 2: New Scrollable Boxes
-  const scrollBoxes = [
-    { title: 'Our Vision', content: 'To be the leading provider of affordable healthcare technology, empowering hospitals and clinics in emerging markets.' },
-    { title: 'Our Mission', content: 'To develop and deliver cost-effective critical-care medical equipment, making advanced healthcare accessible to every corner of the world.' },
-    { title: 'Our Team', content: 'Led by passionate healthcare engineers and clinical experts worldwide, dedicated to improving lives.' },
-    { title: 'Our Values', content: 'Integrity, Affordability, Innovation, and putting patients first.' },
-  ];
-
 
   return (
     <section id="about" style={styles.aboutSection}>
-      <h2 data-aos="fade-right" style={styles.heading}>About Us</h2>
+      <h2 data-aos="fade-up" style={styles.heading}>
+        About ExpoGo
+      </h2>
+
+      <p data-aos="fade-up" style={styles.subHeading}>
+        Delivering innovative and affordable healthcare technology solutions
+        that empower hospitals, clinics, and healthcare providers worldwide.
+      </p>
 
       <div style={styles.cardsContainer}>
-        
-        {/* Mission */}
         <div data-aos="fade-up" style={styles.card}>
-          <img src="https://cdn-icons-png.flaticon.com/512/864/864685.png" alt="Mission" style={styles.icon} />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/864/864685.png"
+            alt="Mission"
+            style={styles.icon}
+          />
           <h3 style={styles.cardTitle}>Our Mission</h3>
           <p style={styles.cardDescription}>
-            To develop and deliver cost-effective critical-care medical equipment,
-            making advanced healthcare accessible to every corner of the world.
+            To develop and deliver cost-effective critical-care medical
+            equipment, making advanced healthcare accessible to every corner
+            of the world.
           </p>
         </div>
 
-        {/* Vision */}
-        <div data-aos="fade-up" style={styles.card}>
-          <img src="https://cdn-icons-png.flaticon.com/512/2920/2920050.png" alt="Vision" style={styles.icon} />
+        <div data-aos="fade-up" data-aos-delay="100" style={styles.card}>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2920/2920050.png"
+            alt="Vision"
+            style={styles.icon}
+          />
           <h3 style={styles.cardTitle}>Our Vision</h3>
           <p style={styles.cardDescription}>
-            To be the leading provider of affordable healthcare technology,
-            empowering hospitals and clinics in emerging markets.
+            To become a global leader in affordable healthcare technology,
+            empowering hospitals and clinics with innovative solutions.
           </p>
         </div>
 
-
-{/* ✅ Continuous Scrollable Boxes */}
-      <div style={styles.scrollContainer}>
-        {scrollBoxes.map((box, index) => (
-          <div
-            key={index}
-            style={styles.scrollBox}
-            onClick={() => setSelectedBox(box)}
-          >
-            <h3>{box.title}</h3>
-          </div>
-        ))}
+        <div data-aos="fade-up" data-aos-delay="200" style={styles.card}>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2785/2785819.png"
+            alt="Innovation"
+            style={styles.icon}
+          />
+          <h3 style={styles.cardTitle}>Innovation</h3>
+          <p style={styles.cardDescription}>
+            We continuously innovate healthcare technology to deliver
+            reliable, scalable, and patient-focused solutions.
+          </p>
+        </div>
       </div>
 
-      {/* ✅ Click-to-open Transparent Modal */}
-      {selectedBox && (
-        <div
-          onClick={() => setSelectedBox(null)}
-          style={styles.overlay}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={styles.overlayContent}
-          >
-            <h2>{selectedBox.title}</h2>
-            <p>{selectedBox.content}</p>
-          </div>
+      <div style={styles.statsSection}>
+        <div style={styles.statCard}>
+          <h2>500+</h2>
+          <p>Hospitals Served</p>
         </div>
-      )}
 
+        <div style={styles.statCard}>
+          <h2>50+</h2>
+          <p>Medical Products</p>
+        </div>
+
+        <div style={styles.statCard}>
+          <h2>24/7</h2>
+          <p>Technical Support</p>
+        </div>
+
+        <div style={styles.statCard}>
+          <h2>15+</h2>
+          <p>Countries Reached</p>
+        </div>
       </div>
     </section>
   );
@@ -97,87 +93,80 @@ function About() {
 const styles = {
   aboutSection: {
     minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
+    padding: '120px 20px',
+    background: 'linear-gradient(180deg,#ffffff,#f8fffe)',
     fontFamily: "'Poppins', sans-serif",
-    padding: '80px 20px',
-  },
-  heading: {
-    fontSize: '32px',
-    fontWeight: '700',
-    color: '#188754',
-    marginBottom: '40px',
-    textAlign: 'center',
-  },
-  cardsContainer: {
-    display: 'flex',
-    gap: '40px',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  },
-  card: {
-    width: '280px',
-    backgroundColor: '#f0fdf4',
-    padding: '20px',
-    borderRadius: '12px',
-    boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-    textAlign: 'center',
-  },
-  icon: {
-    width: '60px',
-    marginBottom: '15px',
-  },
-  cardTitle: {
-    fontSize: '20px',
-    fontWeight: '600',
-    color: '#188754',
-    marginBottom: '10px',
-  },
-  cardDescription: {
-    fontSize: '16px',
-    color: '#555',
-  },
-  scrollContainer: {
-    display: 'flex',
-    gap: '40px',
-    whiteSpace: 'nowrap',
-    animation: 'scrollLeft 30s linear infinite',
-  },
-  scrollBox: {
-    minWidth: '250px',
-    backgroundColor: '#188754',
-    color: '#fff',
-    padding: '20px',
-    borderRadius: '12px',
-    cursor: 'pointer',
-    textAlign: 'center',
-    boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-  },
-  overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 1000,
-  },
-  overlayContent: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    padding: '30px',
-    borderRadius: '12px',
-    maxWidth: '500px',
-    color: 'white',
-    textAlign: 'center',
-    backdropFilter: 'blur(5px)',
   },
 
+  heading: {
+    fontSize: '48px',
+    fontWeight: '800',
+    textAlign: 'center',
+    color: '#0f172a',
+    marginBottom: '20px',
+  },
+
+  subHeading: {
+    maxWidth: '850px',
+    margin: '0 auto 70px',
+    textAlign: 'center',
+    color: '#475569',
+    lineHeight: '1.8',
+    fontSize: '18px',
+  },
+
+  cardsContainer: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))',
+    gap: '30px',
+    maxWidth: '1200px',
+    margin: '0 auto',
+  },
+
+  card: {
+    background: '#fff',
+    borderRadius: '24px',
+    padding: '35px',
+    boxShadow: '0 15px 40px rgba(0,0,0,.08)',
+    border: '1px solid rgba(0,0,0,.05)',
+    textAlign: 'center',
+  },
+
+  icon: {
+    width: '70px',
+    marginBottom: '20px',
+  },
+
+  cardTitle: {
+    fontSize: '24px',
+    fontWeight: '700',
+    marginBottom: '15px',
+    color: '#188754',
+  },
+
+  cardDescription: {
+    fontSize: '16px',
+    color: '#475569',
+    lineHeight: '1.8',
+  },
+
+  statsSection: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))',
+    gap: '25px',
+    maxWidth: '1200px',
+    margin: '80px auto 0',
+  },
+
+  statCard: {
+    background: '#188754',
+    color: '#fff',
+    padding: '30px',
+    borderRadius: '20px',
+    textAlign: 'center',
+    boxShadow: '0 10px 30px rgba(24,135,84,.2)',
+  },
 };
 
 export default About;
+

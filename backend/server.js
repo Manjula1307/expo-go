@@ -8,10 +8,7 @@ require("dotenv").config();
 dotenv.config(); // ✅ Load environment variables from .env file
 
 // ✅ Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('✅ Connected to MongoDB'))
 .catch((err) => console.error('❌ MongoDB connection error:', err));
 
@@ -25,12 +22,13 @@ app.use(express.json()); // Parse JSON bodies
 app.use('/api/auth', require('./routes/auth')); // ✅ Import auth routes
 app.use('/api/user', require('./routes/user'));
 app.use('/api/orders', require('./routes/orders')); //orders route
+app.use('/api/products', require('./routes/products'));
 // app.use('/api/payment', paymentRoutes);
 
 
 // ✅ Sample route
 app.get('/', (req, res) => {
-  res.send('Afford Medical Backend is Running ✅');
+  res.send('MANJULA TEST 123');
 });
 
 // ✅ Start the server
@@ -39,3 +37,6 @@ app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);
 });
 
+app.get('/test', (req, res) => {
+  res.send('Test route works');
+});
